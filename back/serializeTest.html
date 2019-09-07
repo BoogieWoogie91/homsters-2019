@@ -1,0 +1,39 @@
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>04
+    <title></title>
+</head>
+    <body> 
+
+        <form method="post">
+            <h1>Получить билет</h1>
+            <p>Ваше имя<span class='red'>*</span></p>
+            <input type='text'placeholder="Ваше Имя" name='user_name'>
+            <p>Электронная почта<span class='red'>*</span></p>
+            <input type='text' name="user_email" value=""  id='email' placeholder="Ваш Email">
+            <p>Телефон</p>
+            <input type='text' name="user_phone" value="" id='phone' placeholder="Ваш Телефон">   
+			<input type="hidden" name="hidden_type"	 value="ExpoAlmaty"	/> 	
+          </form>
+
+        <button type='submit' id='submitButton' class='a_submit'>Получить бесплатный билет</button>
+        <div class="wrapper"></div>
+
+        <script>
+            $('.a_submit').on('click', function (form) {
+                form.preventDefault();
+                $('.wrapper').html(JSON.stringify($(this).prev('form').serializeArray()));
+				/*var arr = {
+					'eventTypeKey' : 'ExpoAlmaty',
+					'keyValue' : 'test@mail.com',
+					'params' : $(this).prev('form').serializeArray()
+				};*/
+				$.post( 'http://kazlux.com/homsters/testBitrix/integration.php',
+				$(this).prev('form').serializeArray() );
+				
+                console.log(JSON.stringify(arr));
+				
+            });
+        </script>
+
+    </body>

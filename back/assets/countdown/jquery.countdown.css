@@ -1,0 +1,98 @@
+.countdownHolder {
+	max-width: 700px;
+	min-width: 200px;
+	margin: 0 auto;
+	font-family: 'myriadProBold';
+	font-size: 72px;
+	text-align:center;
+	letter-spacing:-3px;
+	height: 82px;
+}
+
+.position {
+	display: inline-block;
+	height: 82px;
+	overflow: hidden;
+	position: relative;
+	width: 60px;	
+}
+
+.digit {
+	position:absolute;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	background-color: #1d335b;
+	border-radius:0.2em;
+	text-align:center;
+	color:#fff;
+	letter-spacing:-1px;
+	height: 82px;	
+}
+
+.digit.static{
+	box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);	
+	background-color: #1d335b;	
+}
+
+/**
+ * You can use these classes to hide parts
+ * of the countdown that you don't need.
+ */
+
+.countDays{
+	margin-right: 1.8vw;
+}
+.countDiv0{ /* display:none !important;*/ }
+.countHours{
+	margin-right: 1.8vw;
+}
+.countDiv1{}
+.countMinutes{}
+.countDiv2{}
+.countSeconds{}
+
+
+.countDiv{
+	display:none;
+	width:16px;
+	height:1.6em;
+	position:relative;
+	visibility: hidden;
+}
+
+.countDiv:before,
+.countDiv:after{
+	position:absolute;
+	width:5px;
+	height:5px;
+	background-color:#444;
+	border-radius:50%;
+	left:50%;
+	margin-left:-3px;
+	top:0.5em;
+	box-shadow:1px 1px 1px rgba(4, 4, 4, 0.5);
+	content:'';
+}
+
+.countDiv:after{
+	top:0.9em;
+}
+
+@media (min-width: 200px) and (max-width: 450px) {
+	.digit {
+		width: 40px;
+		height: 57px;
+	}
+
+	.position {
+		width: 40px;
+		height: 57px;
+	}
+
+	.countdownHolder {
+		height: 57px;
+		font-size: 40px;
+	}
+}
